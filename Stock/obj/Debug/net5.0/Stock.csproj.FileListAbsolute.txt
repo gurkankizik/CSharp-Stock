@@ -1,0 +1,16 @@
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.csproj.AssemblyReference.cache
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.AssemblyInfoInputs.cache
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.AssemblyInfo.cs
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.csproj.CoreCompileInputs.cache
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\Stock.exe
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\Stock.deps.json
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\Stock.runtimeconfig.json
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\Stock.runtimeconfig.dev.json
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\Stock.dll
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\ref\Stock.dll
+C:\Users\Gürkan\source\repos\Stock\Stock\bin\Debug\net5.0\Stock.pdb
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.dll
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\ref\Stock.dll
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.pdb
+C:\Users\Gürkan\source\repos\Stock\Stock\obj\Debug\net5.0\Stock.genruntimeconfig.cache
