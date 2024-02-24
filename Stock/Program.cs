@@ -5,6 +5,7 @@ namespace Stock
     class Program
     {
         double Balance = 5000.0;
+        double Total= 0;
         double[,] Portfolio = new double[4, 2];
         double ASDF = 200.0;
         double QWER = 100.0;
@@ -12,7 +13,7 @@ namespace Stock
         double TYUI = 50.0;
         int DaysPassed = 1;
 
-        void BuyStock(int StockName, int Amount)
+        void BuyStock(int StockName, double Amount)
         {
             double StockPrice = 0;
             switch (StockName)
@@ -31,25 +32,22 @@ namespace Stock
                     break;
             }
 
-            if (StockPrice * Amount > Balance)
+            StockName -= 1;
+            Total = StockPrice * Amount;
+
+            if (Total > Balance)
                 Console.WriteLine("Insufficient Balance!");
             else if (StockName < 1 && StockName > 4)
                 Console.WriteLine("Invalid stockname!");
             else
             {
-                StockName -= 1;
                 Balance -= StockPrice * Amount;
-                if (Portfolio[StockName, 0] == 0)
-                {
-                    Portfolio[StockName, 0] += StockPrice;
-                    Portfolio[StockName, 1] += Amount;
-                }
-                else
-                    Portfolio[StockName, 1] += Amount;
+                Portfolio[StockName, 0] += Total;
+                Portfolio[StockName, 1] += Amount;
             }
         }
 
-        void SellStock(int Amount, int Location)
+        void SellStock(int Location, double Amount)
         {
             double StockPrice = 0;
             switch (Location)
@@ -69,20 +67,14 @@ namespace Stock
             }
 
             Location -= 1;
+            Total = StockPrice * Amount;
 
             if (Portfolio[Location, 0] == 0)
-            {
                 Console.WriteLine("Empty Location!");
-
-            }
             else if (Location < 0 && Location > 3)
-            {
                 Console.WriteLine("Invalid Location!");
-            }
             else if (Portfolio[Location, 1] < Amount)
-            {
                 Console.WriteLine("Selling ammount cannot be bigger than your owned amount!");
-            }
             else
             {
                 if (Portfolio[Location, 1] == Amount)
@@ -93,27 +85,37 @@ namespace Stock
                 }
                 else
                 {
-                    Portfolio[Location, 0] -= StockPrice;
+                    Portfolio[Location, 0] -= Total;
                     Portfolio[Location, 1] -= Amount;
                     Balance += StockPrice * Amount;
                 }
             }
         }
+
         void ShowAccount()
         {
             Console.WriteLine("-----Account-----");
-            Console.WriteLine("Balance: " + Balance);
-            Console.Write("Stocks:");
+            Console.WriteLine("Balance: " + Balance + "$");
+            Console.WriteLine("Stocks:");
             for (int i = 0; i < 4; i++)
             {
-                Console.Write(" ");
-                for (int j = 0; j < 2; j++)
+                switch (i)
                 {
-                    Console.Write(Portfolio[i, j]);
-                    Console.Write(" ");
+                    case 0:
+                        Console.WriteLine("[ASDF] | Total: " + Portfolio[i, 0] + "$" + " Amount: " + Portfolio[i, 1]);
+                        break;
+                    case 1:
+                        Console.WriteLine("[QWER] | Total: " + Portfolio[i, 0] + "$" + " Amount: " + Portfolio[i, 1]);
+                        break;
+                    case 2:
+                        Console.WriteLine("[VBNM] | Total: " + Portfolio[i, 0] + "$" + " Amount: " + Portfolio[i, 1]);
+                        break;
+                    case 3:
+                        Console.WriteLine("[TYUI] | Total: " + Portfolio[i, 0] + "$" + " Amount: " + Portfolio[i, 1]);
+                        break;
                 }
+
             }
-            Console.WriteLine(" ");
             Console.WriteLine("-----------------");
         }
 
@@ -215,7 +217,7 @@ namespace Stock
                         Console.WriteLine("Stock Name: ");
                         int BuyStockOption = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Buy Amount:");
-                        int BuyAmount = Convert.ToInt32(Console.ReadLine());
+                        double BuyAmount = Convert.ToDouble(Console.ReadLine());
                         P.BuyStock(BuyStockOption, BuyAmount);
                         P.ShowAccount();
                         break;
@@ -224,8 +226,8 @@ namespace Stock
                         Console.WriteLine("Location: ");
                         int Location = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("Sell Amount: ");
-                        int SellAmount = Convert.ToInt32(Console.ReadLine());
-                        P.SellStock(SellAmount, Location);
+                        double SellAmount = Convert.ToDouble(Console.ReadLine());
+                        P.SellStock(Location, SellAmount);
                         break;
                     case 4:
                         P.NextDay();
