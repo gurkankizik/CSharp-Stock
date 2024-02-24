@@ -1,2 +1,2 @@
-# Stock
+# Stock App C#
  
